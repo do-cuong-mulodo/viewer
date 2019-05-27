@@ -1,29 +1,31 @@
 import {APIService} from './apiservice';
-const ENDPOINT = 'repos';
+import {REPOS_ENDPOINT} from '@/config/const'
+
+const ENDPOINT = REPOS_ENDPOINT;
 export class RepoService extends APIService {
 
     constructor() {
         super(ENDPOINT);
     }
 
-    getContacts() {
+    getRepos() {
         return super.getData();
     }
 
-    getContactDataByID(id) {
+    getRepoByID(id) {
         return super.getDataBy(id);
     }
 
-    addContact(contact) {
-        return super.insertData(contact);
+    addRepo(repo) {
+        return super.insertData(repo);
     }
 
-    editContact(contact) {
-        return super.updateDataByID(contact);
+    editRepo(repo) {
+        return super.updateDataByID(repo);
     }
 
-    deleteContact(contact) {
-        return super.deleteDataByID(contact);
+    deleteRepo(repo) {
+        return super.deleteDataByID(repo);
     }
 
 }

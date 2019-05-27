@@ -36,7 +36,7 @@ localStorage.setItem('accessToken', ACCESS_TOKEN);
 export default {
     name: 'home',
     mounted() {
-        this.getRepos();
+        this.getAllRepos();
     },
     data() {
         return {
@@ -44,8 +44,8 @@ export default {
         }
     },
     methods: {
-        getRepos() {
-            repoService.getData().then((response) => {
+        getAllRepos() {
+            repoService.getRepos().then((response) => {
                 this.repos = response
             })
             .catch((e) => {
