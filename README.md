@@ -31,8 +31,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### References
 
-1. https://medium.com/@marshallswain/debugging-a-new-vue-cli-app-with-vs-code-ade4945e75f0
+1. https://stackoverflow.com/questions/21907278/github-api-using-repo-scope-but-still-cant-see-private-repos?rq=1
 
-2. https://vuejs.o@cookbook/debugging-in-vscode.html
+2. https://stackoverflow.com/questions/22244163/how-do-i-pass-credentials-to-sonar-api-calls
 
-3. https://github.com/aditya-sridhar/simple-vuejs-app
+3. https://www.redmine.org/projects/redmine/wiki/Rest_Projects

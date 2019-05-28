@@ -1,24 +1,27 @@
 import axios from 'axios';
 import {SERVICE_URL} from '@/config/const'
 
-let config = {
-    headers: {
-        "Authorization": "bearer " + localStorage.getItem('accessToken'),
-        "Accept": "application/json",
-        //"cache-control": "no-cache",
-    }
-}
-
 export class APIService {
 
     apiUrl = '';
+    config = { headers: { } };
 
-    constructor(endpoint) {
-        if(endpoint == null || endpoint === '') {
+    constructor(apiUrl, endpoint, config) {
+        if(apiUrl == null || apiUrl === '') {
             this.apiUrl = `${SERVICE_URL}`;
         } else {
-            this.apiUrl = `${SERVICE_URL}/${endpoint}`;
+            this.apiUrl = apiUrl;
         }
+        if(endpoint == null || endpoint === '') {
+            this.apiUrl = `${apiUrl}`;
+        } else {
+            this.apiUrl = `${apiUrl}/${endpoint}`;
+        }
+        if(config != null) {
+            this.config = config
+        }
+        console.log(this.apiUrl);
+        console.log(this.config);
     }
 
     // if URL is not provided from const SERVICE_URL
@@ -27,58 +30,50 @@ export class APIService {
     }
 
     getDataFromUrl(url) {
-        // eslint-disable-next-line
-        console.log(url)
-        return axios.get(url,config).then(response => response.data);
+        console.log(url);
+        return axios.get(url,this.config).then(response => response.data);
     }
 
     getData() {
         const url = `${this.apiUrl}`;
-        // eslint-disable-next-line
-        console.log(url)
-        return axios.get(url,config).then(response => response.data);
+        console.log(url);
+        return axios.get(url,this.config).then(response => response.data);
     }
 
     getDataBy(param) {
         const url = `${this.apiUrl}/${param}`;
-        // eslint-disable-next-line
-        console.log(url)
-        return axios.get(url,config).then(response => response.data);
+        console.log(url);
+        return axios.get(url,this.config).then(response => response.data);
     }
 
     insertData(data) {
         const url = `${this.apiUrl}`;
-        // eslint-disable-next-line
-        console.log(url)
-        return axios.post(url,data,config);
+        console.log(url);
+        return axios.post(url,data,this.config);
     }
 
     updateDataBy(data, param) {
         const url = `${this.apiUrl}/${param}`;
-        // eslint-disable-next-line
-        console.log(url)
-        return axios.put(url,data,config);
+        console.log(url);
+        return axios.put(url,data,this.config);
     }
 
     updateDataByID(data) {
         const url = `${this.apiUrl}/${data.id}`;
-        // eslint-disable-next-line
-        console.log(url)
-        return axios.put(url,data,config);
+        console.log(url);
+        return axios.put(url,data,this.config);
     }
 
     deleteDataBy(data, param){
         const url = `${this.apiUrl}/${param}`;
-        // eslint-disable-next-line
-        console.log(url)
-        return axios.delete(url,data,config);
+        console.log(url);
+        return axios.delete(url,data,this.config);
     }
 
     deleteDataByID(data) {
         const url = `${this.apiUrl}/${data.id}`;
-        // eslint-disable-next-line
-        console.log(url)
-        return axios.delete(url,data,config);
+        console.log(url);
+        return axios.delete(url,data,this.config);
     }
 
 }

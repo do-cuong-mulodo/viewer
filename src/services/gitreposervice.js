@@ -1,11 +1,10 @@
-import {APIService} from './apiservice';
-import {REPOS_ENDPOINT} from '@/config/const'
+import {GitService} from './gitservice';
+import {GIT_REPOS_ENDPOINT} from '@/config/const'
 
-const ENDPOINT = REPOS_ENDPOINT;
-export class RepoService extends APIService {
+export class GitRepoService extends GitService {
 
     constructor() {
-        super(ENDPOINT);
+        super(GIT_REPOS_ENDPOINT);
     }
 
     getRepos() {
